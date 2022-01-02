@@ -96,7 +96,7 @@ body {
   margin-top: 72px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--bg_body);
-  background-image: url(/Assets/background_image.png);
+  background-image: url(./assets/background_image.png);
   background-size: 100% 100% cover;
   background-blend-mode: overlay;
 }
