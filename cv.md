@@ -6,8 +6,8 @@
 
 ### **Contacts**
 
-- Location: Minsk, Belarus\
-- Phone: +375 29 160-87-05\
+- Location: Minsk, Belarus
+- Phone: +375 29 160-87-05
 - Email: pivovarchik.roman@mail.com
 - GitHub: [Roman-Pivovarchik](https://github.com/Roman-Pivovarchik)
 
