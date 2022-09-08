@@ -1,0 +1,416 @@
+/*
+
+балл за задание +120 (/125)
+
+    1.  студент засабмитил в rs app ссылку на своё CV, задеплоенное   на gh-pages +10
+
+    2.  вёрстка валидная +10
+
+    3.  вёрстка семантическая +20
+
+        -  header, main, footer +5
+        -   элемент nav +5
+        -  только один заголовок h1 +5
+        -  заголовки h2 +5
+
+    4.  в footer есть ссылка на гитхаб автора работы, год создания приложения, логотип курса со ссылкой на курс +10
+
+    5.  для оформления СV используются css-стили +10
+
+    6.  при уменьшении масштаба страницы браузера вёрстка размещается по центру по горизонтали, а не сдвигается в сторону +10
+
+    7.   на странице СV есть фото или аватарка автора, пропорции изображения не искажены, у изображения есть атрибут alt +10
+
+    8. навигация, контакты для связи и перечень навыков оформлены в виде списка ul > li или ul > li > a +10.
+
+    9.   Содержание CV +25
+        CV содержит:
+        -   краткую информацию о себе +5
+        -   контакты для связи +5
+        -   перечень навыков +5
+        -   пример кода. Код добавляется при помощи символов и тегов, а не картинкой +5
+        -   перечень выполненных учебных проектов со ссылками на исходный код или страницу приложения +0
+        -   информацию об образовании и уровне английского +5
+
+    10.   CV выполнено на английском языке +10
+
+    *** Разница между максимальной оценкой за задание (130 баллов) и максимально возможным количеством баллов за выполнение всех пунктов требований (120 баллов) позволит сгладить возможные ошибки проверяющих в ходе кросс-чека, неточности в описании задания, разное понимание требований задания проверяющим и проверяемым.
+*/
+
+/* --------------------------------------------------------------*/
+/* variables, general*/
+
+:root {
+  /*background ()*/
+  --bg_body: #ffb273;
+
+  --bg_header: #009999;
+  --bg_color_Lside: #ffaa00;
+  --bg_color_Rside: whitesmoke;
+  --bg_footer: #4671d5;
+
+  /*opacity ()*/
+
+  --op_header: 0.9;
+  --op_Lside: 0.9;
+  --op_Rside: 0.9;
+  --op_footer: 0.9;
+
+  /*color ( primary(p) | secondary(s) )*/
+
+  --color_header: whitesmoke;
+  --color_p_Lside: whitesmoke;
+  --color_p_Rside: #009999;
+  --color_footer: whitesmoke;
+
+  --color_s_Lside: #909090;
+  --color_s_Rside: #909090;
+
+  --colorlink_Lside: whitesmoke;
+
+  /*font (primary(p) | secondary(s))*/
+
+  --font_name: 1.5em;
+  --font_header: 1.2em;
+  --font_p_Lside: 1.2em;
+  --font_s_Lside: 1em;
+  --font_p_Rside: 1.2em;
+  --font_s_rside: 1em;
+  --font_footer: 1.2em;
+
+  /*border-bottom (side -- for both sides) */
+
+  --border_header: 3px solid #ffaa00;
+  --border_Lside: 2px solid whitesmoke;
+  --border_Rside: 2px solid #4671d5;
+
+  --transition: width 1s ease-out;
+}
+
+/* --------------------------------------------------------------*/
+/* body, general*/
+
+body {
+  margin: 0;
+  padding: 0;
+  margin-top: 72px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg_body);
+  background-image: url(./Assets/background_image.png);
+  background-size: 100% 100% cover;
+  background-blend-mode: overlay;
+}
+
+body a {
+  text-decoration: none;
+}
+
+.cv_main {
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+}
+
+.cv_sec {
+  padding: 0 20px;
+}
+
+.cv_h2 {
+  margin-bottom: 15px;
+  padding-bottom: 7px;
+}
+
+/*------------------------------------------------------------------*/
+/* header */
+
+.header_body {
+  background: var(--bg_header);
+  border-bottom: var(--border_header);
+  opacity: var(--op_header);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  margin: 0px auto;
+  z-index: 10;
+}
+.header_keys {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+  min-height: 50px;
+  max-width: 100%;
+}
+.header_name {
+  font-size: var(--font_name);
+  color: var(--color_header);
+  padding-left: 30px;
+  z-index: 10;
+}
+.nav_list {
+  position: relative;
+  margin: 0;
+  font-size: var(--font_header);
+}
+.nav_list > li {
+  margin: 0px 0px 0px 20px;
+  list-style: none;
+  display: inline;
+}
+
+.nav_link {
+  color: var(--color_header);
+  position: relative;
+  text-decoration: none;
+}
+
+.nav_link:after {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color_header);
+  transition: var(--transition);
+}
+
+.nav_link:hover:after,
+.nav_link:focus:after {
+  width: 100%;
+}
+
+/* ----------------------------------------------------------- */
+/* .block-left */
+
+.cv_color_left {
+  background: var(--bg_color_Lside);
+  opacity: var(--op_Lside);
+}
+.block_left .cv_h2 {
+  border-bottom: var(--border_Lside);
+}
+.block_left {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  padding: 0;
+}
+.cv_photoname {
+  padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cv_figure {
+  margin: 0;
+}
+
+.cv_photo {
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+  border-radius: 100%;
+  border: 3px solid var(--color_p_Lside);
+  box-shadow: 0 0 5px var(--color_p_Lside);
+}
+
+.primary_l,
+.cv_contacts a {
+  color: var(--color_p_Lside);
+}
+
+.contacts_link {
+  border-bottom: 1px solid var(--color_p_Lside);
+  text-align: start;
+}
+
+.contacts_link:hover {
+  color: var(--colorlink_Lside);
+  font-weight: 800;
+  transition: all 1s ease;
+}
+
+.contacts_list {
+  list-style: none;
+  padding: 0;
+}
+
+.contacts_item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.contacts_item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.contacts_linking {
+  border: none;
+}
+
+.cv_skills_list,
+.cv_education_list,
+.cv_languages_list {
+  color: var(--color_p_Lside);
+  list-style: square;
+  padding-left: 15px;
+}
+.cv_skills_item,
+.cv_education_item,
+.cv_languages_item {
+  position: relative;
+  margin-bottom: 7px;
+}
+
+/* ----------------------------------------------------------- */
+/* .block-right */
+
+.cv_color_right {
+  background: var(--bg_color_Rside);
+  opacity: var(--op_Rside);
+}
+
+.block_right .cv_h2 {
+  border-bottom: var(--border_Rside);
+}
+
+.block_right {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+}
+
+.primary_r {
+  color: var(--color_p_Rside);
+}
+
+.cv_codeblock {
+  overflow: auto;
+  background: var(--color_p_Rside);
+  padding: 10px;
+  margin: 0;
+}
+.cv_codeblock code {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+/*
+.cv-table-row:nth-child(2n) {
+  background-color: #e6e6e6;
+}
+*/
+
+.cv_table_td {
+  padding: 15px 20px;
+}
+
+/* ----------------------------------------------------------- */
+/* footer */
+
+.cv_footer {
+  color: var(--color_footer);
+  background: var(--bg_footer);
+  opacity: var(--op_footer);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 5px 30px;
+  margin-top: 5px;
+}
+
+.cv_footer a {
+  color: var(--font_header);
+  border-bottom: 1px solid var(--color_footer);
+}
+
+.cv_footer_item:hover {
+  font-weight: 800;
+  transition: all 1s ease;
+}
+
+.cv_footer_img {
+  width: 100px;
+}
+
+@media (max-width: 576px) {
+  .header_keys {
+    margin: 0;
+    padding: 5px;
+  }
+
+  body {
+    margin-top: 105px;
+  }
+  .block_left {
+    max-width: 45%;
+  }
+
+  .block_right {
+    max-width: 55%;
+  }
+
+  .cv_photoname {
+    padding: 5px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cv_figure {
+    margin: 0;
+  }
+
+  .cv_photo {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    border-radius: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header_keys {
+    margin: 0;
+    padding: 0;
+  }
+
+  .header_name {
+    padding-left: 45px;
+  }
+
+  .nav_list > li {
+    padding: 0 20px;
+  }
+
+  body {
+    margin-top: 105px;
+  }
+  .block_left {
+    max-width: 40%;
+  }
+
+  .block_right {
+    max-width: 60%;
+  }
+}
+@media (max-width: 825px) {
+}
+@media (max-width: 992px) {
+  .cv_photoname {
+    padding: 10px;
+    margin-top: 0;
+  }
+  .block_left {
+    max-width: 40%;
+  }
+
+  .block_right {
+    max-width: 60%;
+  }
+}
